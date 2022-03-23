@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue';
+import DotGraph from '~/components/DotGraph.vue';
 
 const title = "Hello Nuxt3!"
-
 const graphUrl = ref<string>()
 const loading = ref(false)
 
 const load = () => {
   loading.value = true;
+  // console.log(d3.select("#graph").graphviz())
   setTimeout(() => {
     loading.value = false
     alert(`Hello ${graphUrl.value}`)
@@ -22,7 +23,6 @@ const load = () => {
     <Meta name="description" :content="`This is ${title} page`" />
   </Head>
   </Html>
-
   <main>
     <h2>Load Graph URL</h2>
     <div class="grid p-fluid">
@@ -33,6 +33,7 @@ const load = () => {
         </div>
       </form>
     </div>
+    <DotGraph />
   </main>
 </template>
 
@@ -43,7 +44,6 @@ main {
 }
 
 .p-inputgroup {
-  max-width: 1000px
+  max-width: 1000px;
 }
-
 </style>

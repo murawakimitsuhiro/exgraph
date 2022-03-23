@@ -6,10 +6,14 @@
     "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
+    "@types/d3": "^7.1.0",
+    "@types/d3-graphviz": "^2.6.7",
     "nuxt3": "latest"
   },
   "dependencies": {
     "@nuxtjs/color-mode": "^3.0.2",
+    "d3": "^7.3.0",
+    "d3-graphviz": "^4.1.0",
     "primeicons": "^5.0.0",
     "primevue": "^3.12.2"
   }
