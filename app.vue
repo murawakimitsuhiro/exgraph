@@ -33,9 +33,9 @@ const load = () => {
         </div>
       </form>
     </div>
-    <client-only>
+<!--    <client-only>-->
       <DotGraph />
-    </client-only>
+<!--    </client-only>-->
   </main>
 </template>
 
