@@ -3,6 +3,9 @@ import { defineNuxtConfig } from 'nuxt3'
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
     modules: ['@nuxtjs/color-mode'],
+    // build: {
+    //     transpile: ['d3-graphviz'],
+    // },
     css: [
         // '~/assets/variable.css',
         'primevue/resources/themes/lara-light-blue/theme.css',
@@ -13,4 +16,3 @@ export default defineNuxtConfig({
         strict: true
     }
 })
-// <script src="https://unpkg.com/@hpcc-js/wasm/dist/index.min.js" type="javascript/worker" />

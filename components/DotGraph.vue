@@ -1,55 +1,41 @@
 <script setup lang="ts">
-// import { wasmFolder } from "@hpcc-js/wasm";
-import * as d3 from 'd3'
 import { onMounted, ref } from 'vue';
 import { Graphviz, graphviz } from 'd3-graphviz';
+import { wasmFolder, GraphvizSync } from "@hpcc-js/wasm";
+import * as d3 from 'd3'
+
+const graphDivRef = ref<HTMLDivElement>()
+
+let graph: Graphviz<any, any, any, any>
 
 
-
-const graphSvg = ref<HTMLDivElement>();
-let graph: Graphviz<any, any, any, any>;
-
-const render = () => {
-  // const canvas = d3.select(graphSvg.value as HTMLDivElement)
-  //     .append("svg")
-      // .attr("width", 320)
-      // .attr("height", 240)
-      // .append("line")
-      // .attr("x1", 20)
-      // .attr("y1", 5)
-      // .attr("x2", 300)
-      // .attr("y2", 200)
-      // .attr("stroke", "red")
-      // .attr("stroke-width", 2)
-
-  graph = graphviz(graphSvg.value as HTMLDivElement, {
-    useWorker: true,
-  })
-      // .engine('neato')
+function render() {
+  if (!graphDivRef.value) return
+  graph = graphviz(graphDivRef.value)
       .dot(`digraph {a -> b}`)
       .render()
+      .onerror((em) => console.log('graph error', em))
+
+  // d3.select(graphDivRef.value)
+  //     .append("svg")
+  //     .append("line")
+  //     .attr("x1", 20)
+  //     .attr("y1", 5)
+  //     .attr("x2", 300)
+  //     .attr("y2", 200)
+  //     .attr("stroke", "red")
 }
 
 onMounted(async () => {
-  // console.log('mounted', graph)
-  await render()
-
-  setTimeout(() => {
-    console.log('mounted rendered', graph)
-  }, 3000)
-
-  graph.onerror((errorMessage) => {
-    console.log('graph vis error', errorMessage)
-  })
+  render()
 });
 </script>
 
 <template>
   <Html>
-    <Script src="https://unpkg.com/@hpcc-js/wasm/dist/index.min.js"></Script>
+    <Script src="https://unpkg.com/@hpcc-js/wasm/dist/index.min.js" type="javascript/worker" />
   </Html>
-  <div class="graph" ref="graphSvg" />
-  <div id="wasm-graph"></div>
+  <div class="graph" ref="graphDivRef" />
 </template>
 
 <style scoped>
