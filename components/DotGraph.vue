@@ -1,7 +1,10 @@
 <script setup lang="ts">
+// import { wasmFolder } from "@hpcc-js/wasm";
 import * as d3 from 'd3'
 import { onMounted, ref } from 'vue';
 import { Graphviz, graphviz } from 'd3-graphviz';
+
+
 
 const graphSvg = ref<HTMLDivElement>();
 let graph: Graphviz<any, any, any, any>;
@@ -20,15 +23,16 @@ const render = () => {
       // .attr("stroke-width", 2)
 
   graph = graphviz(graphSvg.value as HTMLDivElement, {
-    useWorker: false,
+    useWorker: true,
   })
+      // .engine('neato')
       .dot(`digraph {a -> b}`)
       .render()
 }
 
 onMounted(async () => {
-  console.log('mounted', graph)
-  render()
+  // console.log('mounted', graph)
+  await render()
 
   setTimeout(() => {
     console.log('mounted rendered', graph)
@@ -41,7 +45,11 @@ onMounted(async () => {
 </script>
 
 <template>
+  <Html>
+    <Script src="https://unpkg.com/@hpcc-js/wasm/dist/index.min.js"></Script>
+  </Html>
   <div class="graph" ref="graphSvg" />
+  <div id="wasm-graph"></div>
 </template>
 
 <style scoped>

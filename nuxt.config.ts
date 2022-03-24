@@ -13,3 +13,4 @@ export default defineNuxtConfig({
         strict: true
     }
 })
+// <script src="https://unpkg.com/@hpcc-js/wasm/dist/index.min.js" type="javascript/worker" />
