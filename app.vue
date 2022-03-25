@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import Splitter from 'primevue/splitter';
+import SplitterPanel from 'primevue/splitterpanel';
 import { onMounted, ref } from 'vue';
 import DotGraph from '~/components/DotGraph.vue';
 
@@ -26,16 +28,22 @@ const load = () => {
   </Head>
   </Html>
   <main>
-    <h2>Load Graph URL</h2>
-    <div class="grid p-fluid">
-      <form class="col-12 md:col-4"  @submit.prevent="load">
-        <div class="p-inputgroup">
-          <InputText class="" type="text" v-model="graphUrl" placeholder="https://ー" />
-          <Button class="p-button" type="submit" label="Load" :loading="loading" />
+    <Splitter style="height: 100vh" class="mb-5">
+      <SplitterPanel class="flex align-items-center justify-content-center">
+        <h2>Load Graph URL</h2>
+        <div class="grid p-fluid">
+          <form class="col-12 md:col-4"  @submit.prevent="load">
+            <div class="p-inputgroup">
+              <InputText class="" type="text" v-model="graphUrl" placeholder="https://ー" />
+              <Button class="p-button" type="submit" label="Load" :loading="loading" />
+            </div>
+          </form>
         </div>
-      </form>
-    </div>
-    <DotGraph :dot=graphUrl />
+      </SplitterPanel>
+      <SplitterPanel class="flex align-items-center justify-content-center">
+        <DotGraph :dot=graphUrl />
+      </SplitterPanel>
+    </Splitter>
   </main>
 </template>
 
