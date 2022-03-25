@@ -15,6 +15,7 @@ const initGraphViz = () => {
   wasmFolder('/@hpcc-js/wasm/dist');
   if (!graphDivRef.value) return
   graph = graphviz(graphDivRef.value, { useWorker: false })
+  render(props.dot)
 }
 
 const render = (content: string) => {
@@ -34,8 +35,13 @@ onMounted(async () => { initGraphViz() });
   <div class="graph" ref="graphDivRef" />
 </template>
 
-<style scoped>
+<style>
 .graph {
-  min-height: 500px;
+  height: 100%;
+}
+
+.graph svg {
+  width: 100%;
+  height: 100%;
 }
 </style>
