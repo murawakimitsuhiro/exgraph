@@ -2,8 +2,10 @@
 import { onMounted, ref } from 'vue';
 import DotGraph from '~/components/DotGraph.vue';
 
+let dot = `digraph {a ->  c}`
+
 const title = "Hello Nuxt3!"
-const graphUrl = ref<string>()
+const graphUrl = ref<string>('digraph {a ->  c}')
 const loading = ref(false)
 
 const load = () => {
@@ -33,9 +35,7 @@ const load = () => {
         </div>
       </form>
     </div>
-<!--    <client-only>-->
-      <DotGraph />
-<!--    </client-only>-->
+    <DotGraph :dot=graphUrl />
   </main>
 </template>
 
