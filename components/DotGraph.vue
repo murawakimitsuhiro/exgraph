@@ -6,9 +6,10 @@ import { wasmFolder } from "@hpcc-js/wasm";
 interface Props {
   dot: string
 }
-const props = withDefaults(defineProps<Props>(), {  dot: `digraph {a -> b}` })
 
+const props = withDefaults(defineProps<Props>(), {  dot: `digraph {a -> b}` })
 const graphDivRef = ref<HTMLDivElement>()
+
 let graph: Graphviz<any, any, any, any>
 
 const initGraphViz = () => {
@@ -24,11 +25,8 @@ const render = (content: string) => {
       .onerror((em) => console.log('graph error', em))
 }
 
-watch(() => props.dot, (current, before) => {
-  render(current)
-})
-
-onMounted(async () => { initGraphViz() });
+watch(() => props.dot, (current, before) => render(current))
+onMounted(async () => initGraphViz());
 </script>
 
 <template>
