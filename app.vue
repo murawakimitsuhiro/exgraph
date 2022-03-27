@@ -30,23 +30,16 @@ const load = () => {
   </Head>
   </Html>
   <main>
-    <Splitter style="height: 100vh" class="mb-5">
-
-      <SplitterPanel class="flex align-items-center justify-content-center editor-wrapper">
+    <Splitter class="h-screen">
+      <SplitterPanel class="p4">
         <h3>Dot Content URL</h3>
-        <div class="grid p-fluid">
-          <div class="grid p-fluid">
-            <form class="col-12 md:col-4"  @submit.prevent="load">
-              <div class="p-inputgroup">
-                <InputText class="" type="text" v-model="graphUrl" placeholder="https://ー" />
-                <Button class="p-button" type="submit" label="Load" :loading="loading" />
-              </div>
-            </form>
+        <form class="col-12 md:col-4 my-2"  @submit.prevent="load">
+          <div class="p-inputgroup">
+            <InputText class="" type="text" v-model="graphUrl" placeholder="https://ー" />
+            <Button class="p-button" type="submit" label="Load" :loading="loading" />
           </div>
-        </div>
-
-        <h3>Customized</h3>
-        <Textarea class="editor" v-model="dot" :autoResize="true" rows="5" />
+        </form>
+        <Textarea class="editor w-full my-2" v-model="dot" :autoResize="true" rows="5" />
       </SplitterPanel>
 
       <SplitterPanel class="flex align-items-center justify-content-center">
@@ -55,18 +48,3 @@ const load = () => {
     </Splitter>
   </main>
 </template>
-
-<style scoped>
-.editor-wrapper {
-  padding: 1.2em;
-  min-width: 300px;
-}
-
-.editor {
-  width: 100%;
-}
-
-h3 {
-  margin: 12px 0 4px 0;
-}
-</style>

@@ -8,8 +8,10 @@
   "devDependencies": {
     "@types/d3": "^7.1.0",
     "@types/d3-graphviz": "^2.6.7",
+    "@unocss/nuxt": "^0.30.6",
     "nuxt3": "latest",
-    "ress": "^5.0.2"
+    "ress": "^5.0.2",
+    "unocss": "^0.30.6"
   },
   "dependencies": {
     "@nuxtjs/color-mode": "^3.0.2",

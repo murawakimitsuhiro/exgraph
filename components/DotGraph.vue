@@ -30,14 +30,10 @@ onMounted(async () => initGraphViz());
 </script>
 
 <template>
-  <div class="graph" ref="graphDivRef" />
+  <div class="graph w-full h-full" ref="graphDivRef" />
 </template>
 
 <style>
-.graph {
-  height: 100%;
-}
-
 .graph svg {
   width: 100%;
   height: 100%;

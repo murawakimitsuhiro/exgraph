@@ -2,7 +2,10 @@ import { defineNuxtConfig } from 'nuxt3'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
-    modules: ['@nuxtjs/color-mode'],
+    modules: [
+        '@unocss/nuxt',
+        '@nuxtjs/color-mode'
+    ],
     build: {
         analyze: true,
         transpile: ['@hpcc-js/wasm']
@@ -16,5 +19,11 @@ export default defineNuxtConfig({
     ],
     typescript: {
         strict: true
+    },
+    unocss: {
+        // presets
+        uno: true, // enabled `@unocss/preset-uno`
+        icons: true, // enabled `@unocss/preset-icons`
+        attributify: true, // enabled `@unocss/preset-attributify`,
     }
 })
