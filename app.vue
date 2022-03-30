@@ -4,6 +4,7 @@ import SplitterPanel from 'primevue/splitterpanel';
 import Textarea from 'primevue/textarea';
 import { onMounted, ref } from 'vue';
 import DotGraph from '~/components/DotGraph.vue';
+import { ContextGraph } from '~/pkg/context-graph';
 
 const title = "Hello Nuxt3!"
 
@@ -13,12 +14,11 @@ const dot = ref<string>(`digraph {a ->  c}`)
 const loading = ref(false)
 
 const load = () => {
-  loading.value = true;
-  // console.log(d3.select("#graph").graphviz())
-  setTimeout(() => {
-    loading.value = false
-    alert(`Hello ${graphUrl.value}`)
-  }, 1000);
+  loading.value = true
+  const sampleDot = new ContextGraph(`digraph {a -> b -> c}`)
+
+  dot.value = sampleDot.dot
+  setTimeout(() => { loading.value = false }, 1000)
 }
 </script>
 

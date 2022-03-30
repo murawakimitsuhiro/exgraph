@@ -631,6 +631,13 @@
   resolved "https://registry.yarnpkg.com/@trysound/sax/-/sax-0.2.0.tgz#cccaab758af56761eb7bf37af6f03f326dd798ad"
   integrity sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==
 
+"@ts-graphviz/parser@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@ts-graphviz/parser/-/parser-0.6.0.tgz#5280b194415c3e7f7a24cdc852f4305632402064"
+  integrity sha512-nA0FepUd6es36m1TF8yNgnVxiq/SDVkVdOX499Zs5/iLC7DX/X6w+fkyepgWtBGx49zv6X7P+QGikJP9vEbW7w==
+  dependencies:
+    ts-graphviz "^0.16.0"
+
 "@types/d3-array@*":
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/@types/d3-array/-/d3-array-3.0.2.tgz#71c35bca8366a40d1b8fce9279afa4a77fb0065d"
@@ -1264,6 +1271,11 @@ acorn@^8.5.0, acorn@^8.6.0, acorn@^8.7.0:
   version "8.7.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.7.0.tgz#90951fde0f8f09df93549481e5fc141445b791cf"
   integrity sha512-V/LGr1APy+PXIwKebEWrkZPwoeoF+w1jiOBUmuxuiUIaOHtob8Qc9BTrYo7VuI5fR8tqsy+buA2WFooR5olqvQ==
+
+add@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/add/-/add-2.0.6.tgz#248f0a9f6e5a528ef2295dbeec30532130ae2235"
+  integrity sha1-JI8Kn25aUo7yKV2+7DBTITCuIjU=
 
 agent-base@6:
   version "6.0.2"
@@ -5251,6 +5263,11 @@ tr46@~0.0.3:
   resolved "https://registry.yarnpkg.com/tr46/-/tr46-0.0.3.tgz#8184fd347dac9cdc185992f3a6622e14b9d9ab6a"
   integrity sha1-gYT9NH2snNwYWZLzpmIuFLnZq2o=
 
+ts-graphviz@^0.16.0:
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/ts-graphviz/-/ts-graphviz-0.16.0.tgz#7a6e6b5434854bc90ab861e70d5af0d6d20729a7"
+  integrity sha512-3fTPO+G6bSQNvMh/XQQzyiahVLMMj9kqYO99ivUraNJ3Wp05HZOOVtRhi6w9hq7+laP1MKHjLBtGWqTeb1fcpg==
+
 type-fest@^0.8.0:
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.8.1.tgz#09e249ebde851d3b1e48d27c105444667f17b83d"
@@ -5646,6 +5663,11 @@ yargs@^17.3.1:
     string-width "^4.2.3"
     y18n "^5.0.5"
     yargs-parser "^21.0.0"
+
+yarn@^1.22.18:
+  version "1.22.18"
+  resolved "https://registry.yarnpkg.com/yarn/-/yarn-1.22.18.tgz#05b822ade8c672987bab8858635145da0850f78a"
+  integrity sha512-oFffv6Jp2+BTUBItzx1Z0dpikTX+raRdqupfqzeMKnoh7WD6RuPAxcqDkMUy9vafJkrB0YaV708znpuMhEBKGQ==
 
 yocto-queue@^0.1.0:
   version "0.1.0"
