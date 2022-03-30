@@ -15,7 +15,7 @@ const loading = ref(false)
 
 const load = () => {
   loading.value = true
-  const sampleDot = new ContextGraph(`digraph {a -> b -> c}`)
+  const sampleDot = new ContextGraph()
 
   dot.value = sampleDot.dot
   setTimeout(() => { loading.value = false }, 1000)
