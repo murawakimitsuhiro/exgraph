@@ -44,12 +44,17 @@ const editDotCode = (code: string) => {
           </div>
         </form>
 
-        <Accordion :activeIndex="[1]" :multiple="true" class="my-4">
-          <AccordionTab header="Code">
-            <Textarea class="editor w-full" :autoResize="true" rows="5"
+        <Accordion :activeIndex="[1]" :multiple="true" class="accordion-editor my-4">
+          <AccordionTab>
+            <template class="code-tab" #header>
+              <i class="pi pi-code"></i>
+              <span>Code</span>
+            </template>
+            <Textarea class="editor w-full rounded-t-none" :autoResize="true" rows="5"
                       :value="dot" @input="editDotCode($event.target.value)"
             />
           </AccordionTab>
+
           <AccordionTab header="Nodes">
             Content
           </AccordionTab>
@@ -62,3 +67,24 @@ const editDotCode = (code: string) => {
     </Splitter>
   </main>
 </template>
+
+<style lang="scss" scoped>
+::v-deep(.accordion-editor.p-accordion) {
+  i, span {
+    vertical-align: middle;
+  }
+
+  span {
+    margin: 0 .5rem;
+  }
+
+  .p-accordion-header-link, .p-accordion-content {
+    border: none;
+  }
+
+  .p-accordion-tab:first-child .p-accordion-content {
+    padding: 0;
+    font-size: 0;
+  }
+}
+</style>
