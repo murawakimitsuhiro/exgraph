@@ -6,18 +6,24 @@ import Textarea from 'primevue/textarea';
 import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
 import DotGraph from '~/components/DotGraph.vue';
-import { ContextGraph } from '~/pkg/context-graph';
+import { ContextGraph, CustomGraph } from '~/pkg/context-graph';
 
 const title = "Hello Nuxt3!"
 
 const graphUrl = ref<string>()
 const graph = ref<ContextGraph>(new ContextGraph(`digraph {a ->  c}`))
 const loading = ref(false)
+
 const dot = computed(() => graph.value.dot)
+const nodes = computed(() => graph.value.nodes)
 
 const load = () => {
   loading.value = true
   graph.value = new ContextGraph()
+
+  graph.value.printNodes()
+  const tmp = new CustomGraph()
+
   setTimeout(() => { loading.value = false }, 1000)
 }
 
