@@ -11,11 +11,11 @@ export default defineNuxtConfig({
         transpile: ['@hpcc-js/wasm']
     },
     css: [
-        // '~/assets/variable.css',
         'ress',
         'primevue/resources/themes/lara-light-blue/theme.css',
         'primevue/resources/primevue.css',
-        'primeicons/primeicons.css'
+        'primeicons/primeicons.css',
+        '~/assets/override-theme.css',
     ],
     typescript: {
         strict: true

@@ -1,24 +1,28 @@
 <script setup lang="ts">
+import { computed, ref } from 'vue';
 import Splitter from 'primevue/splitter';
 import SplitterPanel from 'primevue/splitterpanel';
 import Textarea from 'primevue/textarea';
-import { onMounted, ref } from 'vue';
+import Accordion from 'primevue/accordion';
+import AccordionTab from 'primevue/accordiontab';
 import DotGraph from '~/components/DotGraph.vue';
 import { ContextGraph } from '~/pkg/context-graph';
 
 const title = "Hello Nuxt3!"
 
 const graphUrl = ref<string>()
-const dot = ref<string>(`digraph {a ->  c}`)
-
+const graph = ref<ContextGraph>(new ContextGraph(`digraph {a ->  c}`))
 const loading = ref(false)
+const dot = computed(() => graph.value.dot)
 
 const load = () => {
   loading.value = true
-  const sampleDot = new ContextGraph()
-
-  dot.value = sampleDot.dot
+  graph.value = new ContextGraph()
   setTimeout(() => { loading.value = false }, 1000)
+}
+
+const editDotCode = (code: string) => {
+  graph.value = new ContextGraph(code)
 }
 </script>
 
@@ -39,7 +43,17 @@ const load = () => {
             <Button class="p-button" type="submit" label="Load" :loading="loading" />
           </div>
         </form>
-        <Textarea class="editor w-full my-2" v-model="dot" :autoResize="true" rows="5" />
+
+        <Accordion :activeIndex="[1]" :multiple="true" class="my-4">
+          <AccordionTab header="Code">
+            <Textarea class="editor w-full" :autoResize="true" rows="5"
+                      :value="dot" @input="editDotCode($event.target.value)"
+            />
+          </AccordionTab>
+          <AccordionTab header="Nodes">
+            Content
+          </AccordionTab>
+        </Accordion>
       </SplitterPanel>
 
       <SplitterPanel class="flex align-items-center justify-content-center">
