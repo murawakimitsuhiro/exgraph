@@ -6,7 +6,7 @@ import Textarea from 'primevue/textarea';
 import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
 import DotGraph from '~/components/DotGraph.vue';
-import { ContextGraph, CustomGraph } from '~/pkg/context-graph';
+import { ContextGraph  } from '~/pkg/context-graph';
 
 const title = "Hello Nuxt3!"
 
@@ -15,15 +15,11 @@ const graph = ref<ContextGraph>(new ContextGraph(`digraph {a ->  c}`))
 const loading = ref(false)
 
 const dot = computed(() => graph.value.dot)
-const nodes = computed(() => graph.value.nodes)
+const sections = computed(() => graph.value.sections)
 
 const load = () => {
   loading.value = true
-  graph.value = new ContextGraph()
-
-  graph.value.printNodes()
-  const tmp = new CustomGraph()
-
+  console.debug(sections)
   setTimeout(() => { loading.value = false }, 1000)
 }
 
@@ -63,6 +59,11 @@ const editDotCode = (code: string) => {
 
           <AccordionTab header="Nodes">
             Content
+            <ul id="example-1">
+              <li v-for="sec in sections" :key="sec">
+                {{ sec }}
+              </li>
+            </ul>
           </AccordionTab>
         </Accordion>
       </SplitterPanel>
