@@ -2,8 +2,10 @@ import { defineNuxtConfig } from 'nuxt3'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
+    buildModules: [
+        'nuxt-windicss',
+    ],
     modules: [
-        '@unocss/nuxt',
         '@nuxtjs/color-mode'
     ],
     build: {
@@ -20,10 +22,4 @@ export default defineNuxtConfig({
     typescript: {
         strict: true
     },
-    unocss: {
-        // presets
-        uno: true, // enabled `@unocss/preset-uno`
-        icons: true, // enabled `@unocss/preset-icons`
-        attributify: true, // enabled `@unocss/preset-attributify`,
-    }
 })

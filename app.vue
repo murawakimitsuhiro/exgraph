@@ -38,7 +38,7 @@ const editDotCode = (code: string) => {
   </Html>
   <main>
     <Splitter class="h-screen">
-      <SplitterPanel class="p4">
+      <SplitterPanel class="p-4">
         <h3>Dot Content URL</h3>
         <form class="col-12 md:col-4 my-2"  @submit.prevent="load">
           <div class="p-inputgroup">
@@ -58,15 +58,12 @@ const editDotCode = (code: string) => {
             />
           </AccordionTab>
 
-          <AccordionTab header="Nodes">
-            <div class="divide-y-1 divide-solid border-x-0">
-              <div>01</div>
-              <div>02</div>
-              <div>03</div>
-<!--              <div v-for="sec in sections" :key="sec">-->
-<!--                <Textarea class="w-full border-none"-->
-<!--                          :value="sec" :autoResize="true" />-->
-<!--              </div>-->
+          <AccordionTab header="Sections">
+            <div class="divide-y-1">
+              <div v-for="sec in sections" :key="sec">
+                <Textarea class="w-full border-none"
+                          :value="sec" :autoResize="true" rows="1"/>
+              </div>
             </div>
           </AccordionTab>
         </Accordion>
@@ -81,22 +78,23 @@ const editDotCode = (code: string) => {
 
 <style lang="scss" scoped>
 ::v-deep(.accordion-editor.p-accordion) {
-  i, span {
-    vertical-align: middle;
-  }
+  i, span { vertical-align: middle; }
+  span { margin: 0 .5rem; }
 
-  span {
-    margin: 0 .5rem;
-  }
+  .p-accordion-header-link, .p-accordion-content { border: none; }
 
-  .p-accordion-header-link, .p-accordion-content {
-    border: none;
-  }
-
-  .p-accordion-tab:first-child .p-accordion-content {
-  //.p-accordion-tab .p-accordion-content {
+  //.p-accordion-tab:first-child .p-accordion-content {
+  .p-accordion-tab .p-accordion-content {
     padding: 0;
     font-size: 0;
+
+    .p-inputtextarea {
+      &.border-none { border: none; }
+      &.rounded-t-none {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
   }
 }
 </style>
