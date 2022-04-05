@@ -988,6 +988,11 @@
     "@unocss/core" "0.30.6"
     "unconfig" "^0.3.2"
 
+"@unocss/core@0.30.11":
+  "integrity" "sha512-lOvo8fuKnf/cI8FxUIFDfPxK4OoPsQwuS+0ABuvXXKvV9hAtrg4RYMBuuFEgzCGDTeA7jLoMZGNT/wXqp6mMsg=="
+  "resolved" "https://registry.npmjs.org/@unocss/core/-/core-0.30.11.tgz"
+  "version" "0.30.11"
+
 "@unocss/core@0.30.6":
   "integrity" "sha512-hN/W1xmAsKdXOOpQ37YdAwHTz5+w4yhi6HA7FbkxrxBWy/EhcnxIgrZ/EbdtsSBQZ+Jf8vD1CGVkjQmU4ax0jQ=="
   "resolved" "https://registry.npmjs.org/@unocss/core/-/core-0.30.6.tgz"
@@ -1033,6 +1038,13 @@
     "@iconify/utils" "^1.0.30"
     "@unocss/core" "0.30.6"
 
+"@unocss/preset-mini@0.30.11":
+  "integrity" "sha512-YVrdpof6TsFUo+/a/RXcNfEoUFFuGfpDa59v+9zCkob7/9lerkDDBmo+tXJGqShNEgMuMSckrP/aUwO+zl/BrQ=="
+  "resolved" "https://registry.npmjs.org/@unocss/preset-mini/-/preset-mini-0.30.11.tgz"
+  "version" "0.30.11"
+  dependencies:
+    "@unocss/core" "0.30.11"
+
 "@unocss/preset-mini@0.30.6":
   "integrity" "sha512-/ISBzQud6tbOK/TbHrYi1wr7oi68tDGu+UyA9IL7xB38jYziXE1kORV8BLBQe4wiZSN44IO1PkYTcu3eGIQj/g=="
   "resolved" "https://registry.npmjs.org/@unocss/preset-mini/-/preset-mini-0.30.6.tgz"
@@ -1063,6 +1075,14 @@
   dependencies:
     "@unocss/core" "0.30.6"
     "axios" "^0.26.1"
+
+"@unocss/preset-wind@^0.30.11":
+  "integrity" "sha512-qBTlrsJqUoZxQ8hz057GGeXCbhpy59YVlW306f6eBO5knkgvw2pLBTB3FwcH2KvTr3epnuPoHV99Ok0SPn3ubA=="
+  "resolved" "https://registry.npmjs.org/@unocss/preset-wind/-/preset-wind-0.30.11.tgz"
+  "version" "0.30.11"
+  dependencies:
+    "@unocss/core" "0.30.11"
+    "@unocss/preset-mini" "0.30.11"
 
 "@unocss/preset-wind@0.30.6":
   "integrity" "sha512-2AThzNz18a2XMldC468WJUMCdYQ6JTmOfMoGPKuGLzFpI3KjIf65TUF/Jhrthsuk/n2PQ3O0jWfmMJOOHPN9eQ=="

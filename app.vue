@@ -5,6 +5,7 @@ import SplitterPanel from 'primevue/splitterpanel';
 import Textarea from 'primevue/textarea';
 import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
+import Divider from 'primevue/divider';
 import DotGraph from '~/components/DotGraph.vue';
 import { ContextGraph  } from '~/pkg/context-graph';
 
@@ -58,12 +59,15 @@ const editDotCode = (code: string) => {
           </AccordionTab>
 
           <AccordionTab header="Nodes">
-            Content
-            <ul id="example-1">
-              <li v-for="sec in sections" :key="sec">
-                {{ sec }}
-              </li>
-            </ul>
+            <div class="divide-y-1 divide-solid border-x-0">
+              <div>01</div>
+              <div>02</div>
+              <div>03</div>
+<!--              <div v-for="sec in sections" :key="sec">-->
+<!--                <Textarea class="w-full border-none"-->
+<!--                          :value="sec" :autoResize="true" />-->
+<!--              </div>-->
+            </div>
           </AccordionTab>
         </Accordion>
       </SplitterPanel>
@@ -90,6 +94,7 @@ const editDotCode = (code: string) => {
   }
 
   .p-accordion-tab:first-child .p-accordion-content {
+  //.p-accordion-tab .p-accordion-content {
     padding: 0;
     font-size: 0;
   }
