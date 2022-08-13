@@ -3,16 +3,10 @@ import { parse } from '@ts-graphviz/parser';
 
 export class ContextGraph {
 
-    private g: Digraph
+    private readonly g: Digraph
 
-    readonly sections: Set<string>
-
+    public readonly sections: Set<string>
     public get dot(): string { return toDot(this.g) }
-    // public get sections(): Set<string> {
-    //     return newSet(this.g.edges
-    //         .flatMap(e => e.targets)
-    //         .set
-    // }
 
     constructor(dot?: string) {
         if (dot) {
@@ -34,4 +28,28 @@ export class ContextGraph {
         // this.g.addEdge(new Edge([MaP, SaP]))
         // this.g.addEdge(new Edge([SaM, SaP]))
     }
+
+    get edgeConnectedNodes(): NodeRef[] {
+        return this.g.edges
+            .flatMap(e => e.targets)
+            .filter(et => isNodeRef(et))
+    }
+
+    public updateSection(before: string, current: string): void {
+        console.debug(this.edgeConnectedNodes)
+
+        this.g.edges
+            .forEach(e => {
+                e.targets.forEach(et => {
+                    if (!(`id` in et)) { return }
+                    if (et.id == before) {
+                        et.id = current
+                    }
+                })
+                // e.targets[0].id = 'aiueo'
+            })
+    }
 }
+
+const isNodeRef = (n: any): n is NodeRef => `id` in n;
+

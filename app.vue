@@ -12,7 +12,7 @@ import { ContextGraph  } from '~/pkg/context-graph';
 const title = "Hello Nuxt3!"
 
 const graphUrl = ref<string>()
-const graph = ref<ContextGraph>(new ContextGraph(`digraph {a ->  c}`))
+const graph = ref<ContextGraph>(new ContextGraph(`digraph {a -> c; b -> d}`))
 const loading = ref(false)
 
 const dot = computed(() => graph.value.dot)
@@ -27,6 +27,11 @@ const load = () => {
 const editDotCode = (code: string) => {
   graph.value = new ContextGraph(code)
 }
+
+const editSection = (before: string, current: string) => {
+  graph.value.updateSection(before, current)
+}
+
 </script>
 
 <template>
@@ -61,8 +66,8 @@ const editDotCode = (code: string) => {
           <AccordionTab header="Sections">
             <div class="divide-y-1">
               <div v-for="sec in sections" :key="sec">
-                <Textarea class="w-full border-none"
-                          :value="sec" :autoResize="true" rows="1"/>
+                <Textarea class="w-full border-none" :autoResize="true" rows="1"
+                          :value="sec" @input="editSection(sec, $event.target.value)" />
               </div>
             </div>
           </AccordionTab>
